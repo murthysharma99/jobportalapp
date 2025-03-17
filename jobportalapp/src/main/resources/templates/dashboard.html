@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="https://www.w3.org/1999/xhtml"
-      xmlns:th="https://www.thymeleaf.org"
-      xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
     <title>Dashboard</title>
@@ -64,12 +64,6 @@
                 > <i class="fa-solid fa-eye"></i>View Your Jobs</a
                 >
             </li>
-			
-			<li class="nav-item ">
-			                <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/recruiter-profile/}"
-			                > <i class="fa-solid fa-pencil"></i>Edit Account</a
-			                >
-			</li>
             <li class="nav-item ">
                 <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/recruiter-profile/}"
                 > <i class="fa-solid fa-pencil"></i>Edit Account</a
@@ -77,14 +71,15 @@
             </li>
 
         </ul>
-		
-		<img
+
+        <img
                 class="rounded-circle me-3"
                 height="50px"
                 width="50x"
                 th:if="${user.photosImagePath!=null}"
                 th:src="@{${user?.photosImagePath}}"
-		 />
+        />
+
         <label th:if="${user.firstName != null && user.lastName != null}"
                th:text="${user.firstName+' '+user.lastName}"
                class="nav-item nav-link px-2 me-3">
